@@ -1,9 +1,9 @@
-import { AntdCreateInferencer } from "@refinedev/inferencer/antd";
+import { AntdEditInferencer } from "@refinedev/inferencer/antd";
 import { GetServerSideProps } from "next";
 import { authProvider } from "src/authProvider";
 
-export default function BlogPostCreate() {
-  return <AntdCreateInferencer />;
+export default function BlogsEdit() {
+  return <AntdEditInferencer />;
 }
 
 export const getServerSideProps: GetServerSideProps<{}> = async (context) => {
@@ -13,7 +13,7 @@ export const getServerSideProps: GetServerSideProps<{}> = async (context) => {
     return {
       props: {},
       redirect: {
-        destination: `${redirectTo}?to=${encodeURIComponent("/blog-posts")}`,
+        destination: `${redirectTo}?to=${encodeURIComponent("/blogs")}`,
         permanent: false,
       },
     };
