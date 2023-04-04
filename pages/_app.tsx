@@ -14,6 +14,7 @@ import "@refinedev/antd/dist/reset.css";
 import { Header } from "@components/header";
 import { ColorModeContextProvider } from "@contexts";
 import { authProvider } from "src/authProvider";
+import { liveProvider } from "src/provider/liveProvider";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   noLayout?: boolean;
@@ -61,7 +62,9 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
             options={{
               syncWithLocation: true,
               warnWhenUnsavedChanges: true,
+              liveMode: "auto"
             }}
+            liveProvider={liveProvider(entities)}
           >
             {renderComponent()}
             <RefineKbar />
